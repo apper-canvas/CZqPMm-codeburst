@@ -33,8 +33,9 @@ function App() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
               CB
             </div>
-            <h1 className="text-xl font-bold">
-              Code<span className="text-primary">Burst</span>
+            <h1 className="text-2xl font-bold">
+              <span className="text-gradient">CodeFusion</span>
+              <span className="text-xs ml-2 text-surface-500 dark:text-surface-400 font-normal">Ignite Your Coding Journey</span>
             </h1>
           </div>
           
@@ -67,7 +68,7 @@ function App() {
       
       <footer className="bg-white dark:bg-surface-900 border-t border-surface-200 dark:border-surface-800 py-4">
         <div className="container mx-auto px-4 text-center text-sm text-surface-500">
-          <p>© {new Date().getFullYear()} CodeBurst. Start your JavaScript journey today.</p>
+          <p>© {new Date().getFullYear()} CodeFusion. Ignite Your Coding Journey.</p>
         </div>
       </footer>
     </div>
