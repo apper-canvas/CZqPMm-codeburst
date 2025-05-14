@@ -4,92 +4,103 @@
 
 @layer base {
   body {
-    @apply antialiased text-surface-800 dark:text-surface-100;
+    @apply text-surface-800 dark:text-surface-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold;
+  code {
+    @apply font-mono;
   }
 }
 
 @layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-  
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
-  }
-  
-  .btn-outline {
-    @apply border border-surface-300 dark:border-surface-700 hover:bg-surface-100 dark:hover:bg-surface-800 focus:ring-surface-400;
-  }
-  
   .card {
     @apply bg-white dark:bg-surface-800 rounded-xl shadow-card dark:shadow-none border border-surface-200 dark:border-surface-700;
   }
-  
-  .input {
-    @apply w-full px-3 py-2 bg-white dark:bg-surface-800 border border-surface-300 dark:border-surface-700 rounded-lg 
-    focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light focus:border-transparent
-    placeholder:text-surface-400;
-  }
-  
-  .code-editor {
-    @apply font-mono text-sm bg-surface-800 text-surface-100 p-4 rounded-lg border border-surface-700;
-  }
-}
 
-@layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-surface-900;
   }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary/50;
   }
-  
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary/50;
+  }
+
+  .btn-outline {
+    @apply border border-surface-300 dark:border-surface-600 hover:bg-surface-100 dark:hover:bg-surface-700 focus:ring-surface-400/30;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
-  
-  .bg-grid {
-    background-image: 
-      linear-gradient(to right, rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+
+  .loading-spinner {
+    @apply w-10 h-10 border-4 border-surface-200 dark:border-surface-700 border-t-primary rounded-full animate-spin;
+  }
+
+  .loading-overlay {
+    @apply fixed inset-0 flex items-center justify-center bg-white/80 dark:bg-surface-900/80 backdrop-blur-sm z-50;
   }
 }
 
-.code-line {
-  @apply block;
+/* Custom code editor styles */
+.code-editor {
+  @apply font-mono text-sm bg-surface-900 text-surface-100 p-4 rounded-lg;
 }
 
-.code-line-highlight {
-  @apply bg-primary/10 -mx-4 px-4;
+.code-output {
+  @apply font-mono text-sm bg-surface-100 dark:bg-surface-800 p-4 rounded-lg border border-surface-200 dark:border-surface-700;
 }
 
-.code-token-keyword {
+/* Prism.js syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-surface-500;
+}
+
+.token.punctuation {
+  @apply text-surface-400;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
   @apply text-primary-light;
 }
 
-.code-token-string {
-  @apply text-secondary-light;
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-secondary;
 }
 
-.code-token-function {
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
   @apply text-accent;
 }
 
-.code-token-comment {
-  @apply text-surface-500 italic;
+.token.keyword {
+  @apply text-primary;
 }
 
-.code-token-punctuation {
-  @apply text-surface-400;
-}
+/* ApperUI customizations */
+#authentication div { @apply mx-auto; }
